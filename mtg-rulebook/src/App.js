@@ -17,7 +17,7 @@ class App extends React.Component {
       hello: '',
       chapters: [],
       activeSection: {},
-      sidebar: false
+      sidebarWidth: "0px"
     }
   }
   
@@ -39,63 +39,45 @@ class App extends React.Component {
   }
 
   toggleSidebar() {
-    const sidebarState = this.state.sidebar
-    this.setState({sidebar: !sidebarState})
-    console.log(this.state.sidebar)
+    const sidebarState = this.state.sidebarWidth
+    if(sidebarState === "0px"){
+      this.setState({sidebarWidth: "300px"})
+    }else{
+      this.setState({sidebarWidth: "0px"})
+    }
+    console.log(this.state.sidebarWidth)
   }
 
 
   render(){
     console.log('render')
 
-    if(this.state.sidebar === true){
-      return (
-        <div>
-        <Header sidebar={this.toggleSidebar}/>
-        <div className={styles.layout}>
-          <div className={styles.sidebarContainer}>
-          <div className={styles.sidebar}>
-            <Sidebar 
-              chapters={this.state.chapters} 
-              toggleSection={this.toggleSection}
-              sidebar={this.toggleSidebar}
-            />
-          </div>
-          </div>
-
-          <div className={styles.mainSidebarOn} onClick={() => this.toggleSidebar()}>
-            <div className={styles.content}>
-              <h1>{this.state.activeSection.section}</h1>
-              <br></br><br></br>
-              {Object.values(this.state.activeSection).slice(1).map(rule =>(
-                <p>{rule.rule}</p>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-      )
-    }
-    
     return (
       <div>
-        <Header sidebar={this.toggleSidebar}/>
-        <div className={styles.layout}>
-
-          <div className={styles.main}>
-            <div className={styles.content}>
-              <h1>{this.state.activeSection.section}</h1>
-              <br></br><br></br>
-              {Object.values(this.state.activeSection).slice(1).map(rule =>(
-                <p>{rule.rule}</p>
-              ))}
-            </div>
+      <Header sidebar={this.toggleSidebar}/>
+      <div className={styles.layout}>
+        <div className={styles.sidebarContainer} style={{width: this.state.sidebarWidth}}>
+        <div className={styles.sidebar}>
+          <Sidebar 
+            chapters={this.state.chapters} 
+            toggleSection={this.toggleSection}
+          />
+        </div>
+        </div>
+        <div  className={styles.main}
+              style={{marginLeft: this.state.sidebarWidth}}
+              onClick={() => this.setState({sidebarWidth: "0px"})}
+              >
+          <div className={styles.content}>
+            <h1>{this.state.activeSection.section}</h1>
+            {Object.values(this.state.activeSection).slice(1).map(rule =>(
+              <p key={rule.ruleKey}>{rule.rule}</p>
+            ))}
           </div>
         </div>
       </div>
+    </div>
     )
-
-
   }
 }
 
