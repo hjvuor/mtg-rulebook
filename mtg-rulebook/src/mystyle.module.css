@@ -1,0 +1,177 @@
+
+body {
+  font-family: 'Noto Sans Mono', monospace;
+  margin: 0;
+  background-color: #ffffff;
+}
+
+
+.layout{
+  padding: none;
+  background-color: rgb(255, 0, 0);
+/*  display: flex;
+  flex-direction: row;
+  flex-shrink: unset; */
+}
+
+
+.sidebar{
+  
+  color: white;
+  
+  
+  display: flex;
+  flex-direction: row;
+}
+
+.sidebarContainer{
+  background-color: #414141;
+  position: fixed;
+  overflow-y: scroll;
+  margin-top: 70px;
+  min-height: 100vh - 70px;
+	flex-basis: 300px;
+  max-width: 300px;
+	flex-grow: 0;
+	flex-shrink: 0;
+  top: 0;
+  bottom: 0;
+}
+
+.sidebarContainer::-webkit-scrollbar {
+  display: none;
+}
+
+.sidebarFooter {
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  width: 300px;
+  padding: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-variant: normal;
+  font-size: 12px;
+  overflow: hidden;
+}
+
+.main {
+  background-color: whitesmoke;
+  min-width: 100vw;
+  min-height: 100vh;
+  padding-top: 20vh;
+  padding-bottom: 20vh;
+}
+
+.mainSidebarOn {
+  background-color: whitesmoke;
+  min-width: 100vw - 300px;
+  min-height: 100vh;
+  padding-top: 20vh;
+  margin-left: 300px;
+}
+
+.content {
+  padding: 10px;
+  background-color: rgb(255, 255, 255);
+  width: 60%;
+  min-width: 800px;
+  margin: 0 auto;
+  box-shadow: 10px 10px 20px -20px #000000;
+}
+
+.content h1 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 40px;
+}
+
+
+.header{
+  background-color: #000000;
+  height: 70px;
+  line-height: 70px;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  vertical-align: bottom;
+  box-shadow: 2px 2px 20px 0px #000000;
+}
+
+.title {
+  font-family: 'Roboto', sans-serif;
+  font-size: 32px;
+  font-style: italic;
+  color: white;
+  margin-top: auto;
+  margin-bottom: 0px;
+  vertical-align: bottom;
+  width: 100vw;
+  text-align: center;
+}
+
+.sidebarButton {
+  color: white;
+  margin-left: 10px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.chapter{
+  padding: 0;
+  margin: 0;
+  padding-left: 20px;
+  min-height: 50px;
+  line-height: 50px;
+  vertical-align: bottom;
+}
+
+.chapter p{
+  margin:0;
+  vertical-align: bottom;
+}
+.chapter:hover{
+  background-color: rgb(41, 41, 41);
+  border: rgb(161, 154, 154);
+  border-bottom: 2px;
+}
+
+.section{
+  padding: 0;
+  margin: 0;
+  padding-left: 40px;
+  min-height: 50px;
+  line-height: 50px;
+  vertical-align: bottom;
+}
+
+.section p{
+  margin:0;
+  vertical-align: bottom;
+}
+
+.section:hover{
+  background-color: rgb(41, 41, 41);
+  padding-left: 40px;
+}
+
+@media (max-width: 478px) {
+  .title {
+    font-size: 20px;
+    margin-left: 20px;
+    max-width: 50%;
+    margin-top: 0px;
+    line-height: normal;
+    text-align: center;
+    width: 100vh;
+  }
+  .sidebarButton{
+    font-size: 14px;
+  }
+  .main {
+    padding-top: 100px;
+  }
+  .content {
+    min-width: 100%;
+  }
+}
+
