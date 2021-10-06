@@ -67,11 +67,13 @@ class App extends React.Component {
         <div  className={styles.main}
               style={{marginLeft: this.state.sidebarWidth}}
               onClick={() => this.setState({sidebarWidth: "0px"})}
+              
               >
+          
           <div className={styles.content}>
-            <h1>{this.state.activeSection.section}</h1>
+          <h1>{this.state.activeSection.section}</h1>
             {Object.values(this.state.activeSection).slice(1).map(rule =>(
-              <p key={rule.ruleKey}>{rule.rule}</p>
+              <p className={styles.rule} key={rule.ruleKey}><strong>{rule.ruleKey+" "}</strong><br></br>{rule.rule}</p>
             ))}
           </div>
         </div>

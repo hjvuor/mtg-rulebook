@@ -8,7 +8,7 @@ body {
 
 .layout{
   padding: none;
-  background-color: rgb(255, 0, 0);
+  background-color: rgb(63, 63, 63);
   display: flex;
   flex-direction: row;
   flex-shrink: unset;
@@ -16,16 +16,18 @@ body {
 
 
 .sidebar{
-  color: white;
+  
+  color: rgb(0, 0, 0);
   display: flex;
   flex-direction: row;
+  padding-right: 0px;
 }
 
 .sidebarContainer{
   position: fixed;
-  background-color: #414141;
+  background-color: #dddddd;
   overflow-y: scroll;
-  margin-top: 62px;
+  padding-top: 80px;
   min-height: 100vh - 70px;
   width: 300px;
 	flex-grow: 0;
@@ -33,6 +35,8 @@ body {
   top: 0;
   bottom: 0;
   transition: 0.3s;
+  box-shadow: 10px 10px 20px -20px #000000;
+  z-index: 0;
 }
 
 .sidebarContainer::-webkit-scrollbar {
@@ -62,9 +66,9 @@ body {
 
 
 .content {
-  padding: 10px;
+  padding: 16px;
   background-color: rgb(255, 255, 255);
-  max-width: 60%;
+  max-width: 80%;
   min-width: 800px;
   margin: 0 auto;
   box-shadow: 10px 10px 20px -20px #000000;
@@ -75,6 +79,17 @@ body {
   font-family: 'Roboto', sans-serif;
   font-size: 40px;
   margin: 32px;
+}
+
+
+
+.rule:after {
+  content: ""; /* This is necessary for the pseudo element to work. */ 
+  display: block; /* This will put the pseudo element on its own line. */
+  margin: 0 auto; /* This will center the border. */
+  width: 90%; /* Change this to whatever width you want. */
+  padding-top: 20px; /* This creates some space between the element and the border. */
+  border-bottom: 1px solid rgb(201, 201, 201); /* This creates the border. Replace black with whatever color you want. */
 }
 
 
@@ -89,6 +104,7 @@ body {
   flex-direction: row;
   vertical-align: bottom;
   box-shadow: 2px 2px 20px 0px #000000;
+  z-index: 1;
 }
 
 .title {
@@ -116,6 +132,7 @@ body {
   min-height: 50px;
   line-height: 50px;
   vertical-align: bottom;
+  
 }
 
 .chapter p{
@@ -123,28 +140,33 @@ body {
   vertical-align: bottom;
 }
 .chapter:hover{
-  background-color: rgb(41, 41, 41);
-  border: rgb(161, 154, 154);
-  border-bottom: 2px;
+  background-color: rgb(167, 167, 167);
 }
+
+
 
 .section{
   padding: 0;
   margin: 0;
-  padding-left: 40px;
-  min-height: 50px;
-  line-height: 50px;
+  margin-left: 20px;
   vertical-align: bottom;
+
 }
 
 .section p{
   margin:0;
-  vertical-align: bottom;
+  padding:0;
+  padding-top: 19px;
+  padding-bottom: 1px;
+  line-height: 30px;
+  margin-right: 20px;
+  padding-left: 20px;
+  border-left: 1px solid rgb(167, 167, 167);
+  border-bottom: 1px solid rgb(167, 167, 167);
 }
 
 .section:hover{
-  background-color: rgb(41, 41, 41);
-  padding-left: 40px;
+  background-color: rgb(167, 167, 167);
 }
 
 @media (max-width: 478px) {

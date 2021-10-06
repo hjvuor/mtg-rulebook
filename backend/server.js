@@ -36,7 +36,7 @@ function parseLines(lines) {
       //Get rules by mathing keys that have a key that starts with a section and then some more characters
       if(key.match(/^[0-9]{3}\../)){
           rules[key[0]+'.'][key.substring(0,4)][key] = {
-              rule: line.replace('\r',''),
+              rule: line.replace('\r','').substr(line.replace('\r','').indexOf(" ") + 1),
               ruleKey: key
           }
       }
