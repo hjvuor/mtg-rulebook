@@ -57,12 +57,12 @@ class App extends React.Component {
       <Header sidebar={this.toggleSidebar}/>
       <div className={styles.layout}>
         <div className={styles.sidebarContainer} style={{width: this.state.sidebarWidth}}>
-        <div className={styles.sidebar}>
-          <Sidebar 
-            chapters={this.state.chapters} 
-            toggleSection={this.toggleSection}
-          />
-        </div>
+          <div className={styles.sidebar}>
+            <Sidebar 
+              chapters={this.state.chapters} 
+              toggleSection={this.toggleSection}
+            />
+          </div>
         </div>
         <div  className={styles.main}
               style={{marginLeft: this.state.sidebarWidth}}
@@ -71,10 +71,16 @@ class App extends React.Component {
               >
           
           <div className={styles.content}>
-          <h1>{this.state.activeSection.section}</h1>
-            {Object.values(this.state.activeSection).slice(1).map(rule =>(
-              <p className={styles.rule} key={rule.ruleKey}><strong>{rule.ruleKey+" "}</strong><br></br>{rule.rule}</p>
-            ))}
+            <h1>{this.state.activeSection.section}</h1>
+            <div className={styles.rules}>
+              {Object.values(this.state.activeSection).slice(1).map(rule =>(
+                <p className={styles.rule} key={rule.ruleKey}><strong>{rule.ruleKey+" "}</strong><br></br>{rule.rule}</p>
+              ))}
+            </div>
+            <div className={styles.footer}>
+                MTG-Rulebook by Heikki Vuorinen <br/>
+                (github link)
+            </div>
           </div>
         </div>
       </div>

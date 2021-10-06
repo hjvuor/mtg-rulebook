@@ -9,10 +9,7 @@ const Sidebar = (props) => {
             {props.chapters.map(chapter =>
             <Chapter chapter={chapter} key={chapter.chapterName} toggleSection={props.toggleSection}/>
             )}
-            <div className={styles.sidebarFooter}>
-                MTG-Rulebook by Heikki Vuorinen <br/>
-                (github link)
-            </div>
+            
         </div>
         )
     }
